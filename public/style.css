@@ -1,0 +1,150 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  min-height: 100vh;
+  color: #e5e7eb;
+  padding: 40px 16px;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  padding: 10px 16px;
+  background: #6366f1;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+}
+
+/* ===== FILE LIST ===== */
+.file-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.file-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.2s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  border-color: #6366f1;
+}
+
+.file-name {
+  font-size: 16px;
+  margin-bottom: 12px;
+  word-break: break-word;
+}
+
+/* ===== ACTIONS ===== */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.actions a {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+}
+
+.edit {
+  background: #22c55e;
+}
+
+.delete {
+  background: #ef4444;
+}
+
+.edit:hover { background: #16a34a; }
+.delete:hover { background: #dc2626; }
+
+/* ===== EDIT PAGE ===== */
+textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 16px;
+  background: #020617;
+  color: #e5e7eb;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  font-size: 15px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #6366f1;
+}
+
+/* ===== FORM ===== */
+form {
+  margin-top: 16px;
+}
+
+.save-btn {
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background: #4f46e5;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

@@ -1,16 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>File Directory</title>
+  <title>File Manager</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-   <% files.forEach(function(files) { %> 
-    <h3><%= files %></h3>
-    <a href="/edit/<%= files %>">Edit</a>
-    <a href="/delete/<%= files %>">Delete</a>
-    <% }) %>
+  <div class="container">
+    <div class="header">
+      <h1>📁 File Manager</h1>
+      <a href="/create" class="btn" onclick="return confirmCreate()">
+  + Create File
+</a>
+
+    </div>
+
+    <div class="file-list">
+      <% files.forEach(file => { %>
+        <div class="file-card">
+          <div class="file-name"><%= file %></div>
+          <div class="actions">
+            <a class="edit" href="/edit/<%= file %>">Edit</a>
+            <a 
+  class="delete" 
+  href="/delete/<%= file %>" 
+  onclick="return confirmDelete('<%= file %>')">
+  Delete
+</a>
+
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+  <script>
+  function confirmCreate() {
+    return confirm('Create a new file with today’s date?');
+  }
+
+  function confirmDelete(filename) {
+    return confirm(`Are you sure you want to delete "${filename}"?`);
+  }
+</script>
+
 
 </body>
 </html>

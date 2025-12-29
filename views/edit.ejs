@@ -1,14 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit File</title>
+  <title>Edit File</title>
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <form action="/update/<%= filename %>" method="post">
-    <textarea name="content"><%= data %></textarea>
-    <input type="submit">
+  <div class="container">
+    <h1>Edit: <%= filename %></h1>
+
+    <form method="POST" action="/update/<%= filename %>">
+      <textarea name="content"><%= data %></textarea>
+      <button class="save-btn">Save Changes</button>
     </form>
+  </div>
 </body>
 </html>
