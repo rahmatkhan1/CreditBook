@@ -26,7 +26,8 @@ const year=currentDate.getFullYear();
 const formattedDate = `${day}-${month}-${year}.txt`;
 
 //write file to the files directory
-    fs.writeFile(`files/${formattedDate}` , 'This is a sample file.', function(err){
+
+fs.writeFile(`files/${formattedDate}` , 'This is a sample file.', function(err){
 
         if (err) 
             return res.send('Error creating file.'  + err);
@@ -34,4 +35,26 @@ const formattedDate = `${day}-${month}-${year}.txt`;
             return res.send('File created successfully:');
         })
 });
+
+// file edit route
+app.get('/edit/:filename', (req, res) => {
+    fs.readFile(`./files/${req.params.filename}`, 'utf8', function(err, data) {
+        if (err) 
+            return res.send('Error reading file: ' + err);
+        
+    res.render('edit', { data: data, filename: req.params.filename });
+});
+});
+
+// file update route
+app.post('/update/:filename', (req, res) => {
+    fs.writeFile(`./files/${req.params.filename}`, req.body.content, (err) => {
+        if (err)
+            return res.send('Error updating file: ' + err);
+        
+        res.send('File updated successfully.');
+    });
+});
+
+// start server
 app.listen(3000);
