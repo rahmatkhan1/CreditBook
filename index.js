@@ -56,5 +56,14 @@ app.post('/update/:filename', (req, res) => {
     });
 });
 
+//file delete route
+app.get('/delete/:filename', (req, res) => {
+    fs.unlink(`./files/${req.params.filename}`, (err) => {
+        if (err)
+            return res.send('Error deleting file: ' + err); 
+        res.send('File deleted successfully.');
+    });
+});
+
 // start server
 app.listen(3000);
