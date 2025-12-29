@@ -1,4 +1,4 @@
-# 📁 File Manager App (Node.js + Express + EJS)
+# 📁 Credit Book App (Node.js + Express + EJS)
 
 A simple and modern **File Manager web application** built using **Node.js**, **Express**, and **EJS**.  
 This app allows users to **create, read, update, and delete (CRUD)** text files from a web interface with a clean UI and confirmation popups.
